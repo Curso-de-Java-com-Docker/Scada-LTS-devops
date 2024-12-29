@@ -18,8 +18,8 @@ services:
         deploy:
             resources:
                 limits:
-                    cpus: 0.5
-                    memory: 500M
+                    cpus: 1
+                    memory: 1G
     scadalts:
         image: scadalts/scadalts:latest
         environment:
@@ -45,5 +45,5 @@ services:
         deploy:
             resources:
                 limits:
-                    cpus: 0.5
-                    memory: 500M
+                    cpus: 1
+                    memory: 1G
