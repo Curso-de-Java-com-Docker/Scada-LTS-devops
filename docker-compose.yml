@@ -15,6 +15,11 @@ services:
             - ./db_data:/var/lib/mysql:rw
             - ./db_conf:/etc/mysql:ro
         command: --log_bin_trust_function_creators=1
+        deploy:
+            resources:
+                limits:
+                    cpus: 0.5
+                    memory: 500M
     scadalts:
         image: scadalts/scadalts:latest
         environment:
@@ -37,9 +42,8 @@ services:
             - --
             - /usr/local/tomcat/bin/catalina.sh
             - run
-    mqtt:
-        image: hivemq/hivemq4:latest
-        ports:
-            - "8081:8080"
-            - "1883:1883"
-        expose: [ "8081", "1883" ]
+        deploy:
+            resources:
+                limits:
+                    cpus: 0.5
+                    memory: 500M
